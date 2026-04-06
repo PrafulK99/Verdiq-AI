@@ -1,35 +1,70 @@
+import { useRef, useState } from 'react';
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import CTASection from './components/CTASection';
+import Footer from './components/Footer';
+import UploadComponent from './components/UploadComponent';
+import ClaimsDisplay from './components/ClaimsDisplay';
+
+interface Claim {
+  claim_text: string;
+  theme: string;
+  confidence: number;
+  metrics?: string | null;
+}
+
 export default function App() {
+  const [claims, setClaims] = useState<Claim[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const uploadSectionRef = useRef<HTMLDivElement>(null);
+
+  const handleClaimsExtracted = (extractedClaims: Claim[]) => {
+    setClaims(extractedClaims);
+  };
+
+  const handleHeroUploadClick = () => {
+    uploadSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-6 py-10">
-        <h1 className="text-4xl font-bold text-emerald-400">Verdiq AI</h1>
-        <p className="mt-3 text-slate-300">
-          ESG Forensic Auditor & Greenwashing Detection Platform
-        </p>
+    <div className="min-h-screen bg-background text-on-surface">
+      <Navigation />
+      <Hero onUploadClick={handleHeroUploadClick} />
+      <Features />
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-lg">
-            <h2 className="text-lg font-semibold">Upload Sources</h2>
-            <p className="mt-2 text-sm text-slate-400">
-              CSR reports, 10-K filings, and news evidence.
+      {/* Upload Section */}
+      <section ref={uploadSectionRef} className="relative py-32 px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center">
+            <h2 className="font-headline font-bold text-5xl text-white mb-4">Upload Your Document</h2>
+            <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">
+              Upload your Corporate Social Responsibility or sustainability report to extract claims and detect greenwashing
             </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-lg">
-            <h2 className="text-lg font-semibold">Detect Contradictions</h2>
-            <p className="mt-2 text-sm text-slate-400">
-              Compare sustainability claims against financial and public evidence.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-lg">
-            <h2 className="text-lg font-semibold">Generate Risk Report</h2>
-            <p className="mt-2 text-sm text-slate-400">
-              Produce a greenwashing risk score and legal-ready ESG brief.
-            </p>
+          <div className="rounded-2xl glass-panel border border-white/10 p-8 backdrop-blur-lg">
+            <UploadComponent
+              onClaimsExtracted={handleClaimsExtracted}
+              onLoading={setIsLoading}
+            />
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Claims Display Section */}
+      {(claims.length > 0 || isLoading) && (
+        <section className="py-32 px-8 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <div className="rounded-2xl glass-panel border border-white/10 p-8 backdrop-blur-lg">
+              <ClaimsDisplay claims={claims} isLoading={isLoading} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      <CTASection />
+      <Footer />
     </div>
-  )
+  );
 }
