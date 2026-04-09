@@ -71,7 +71,7 @@ export default function Features() {
                   <span className="material-symbols-outlined text-3xl">{feature.icon}</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 font-headline">{feature.title}</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-[#a7aca9] text-sm leading-relaxed">{feature.description}</p>
               </div>
             );
           })}

@@ -35,7 +35,7 @@ export default function Hero({ onUploadClick }: HeroProps) {
           >
             star
           </span>
-          <span className="text-on-surface-variant font-label text-[14px] font-normal uppercase tracking-[0.1em]">
+          <span className="text-[#a7aca9] font-label text-[14px] font-normal uppercase tracking-[0.1em]">
             Discover what's possible
           </span>
         </div>
@@ -46,7 +46,7 @@ export default function Hero({ onUploadClick }: HeroProps) {
         </h1>
 
         {/* Subheadline */}
-        <p className="font-fustat font-medium text-[20px] text-on-surface-variant max-w-2xl mb-12">
+        <p className="font-fustat font-medium text-[20px] text-[#a7aca9] max-w-2xl mb-12">
           Upload your information and get powerful insights right away. Work smarter and achieve goals effortlessly.
         </p>
 

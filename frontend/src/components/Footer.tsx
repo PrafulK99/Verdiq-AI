@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full py-12 px-8 flex flex-col items-center gap-6 bg-background border-t border-white/5">
+    <footer className="w-full py-12 px-8 flex flex-col items-center gap-6 bg-[#0a0f0d] border-t border-white/5">
       <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col items-start gap-2">
           <span className="font-schibsted font-bold text-primary text-lg">Verdiq AI</span>

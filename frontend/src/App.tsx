@@ -28,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-on-surface">
+    <div className="min-h-screen bg-[#0a0f0d] text-[#f9fdf9]">
       <Navigation />
       <Hero onUploadClick={handleHeroUploadClick} />
       <Features />
@@ -38,7 +38,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="font-headline font-bold text-5xl text-white mb-4">Upload Your Document</h2>
-            <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">
+            <p className="text-[#a7aca9] text-lg max-w-2xl mx-auto">
               Upload your Corporate Social Responsibility or sustainability report to extract claims and detect greenwashing
             </p>
           </div>

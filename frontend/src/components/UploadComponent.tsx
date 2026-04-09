@@ -126,7 +126,7 @@ export default function UploadComponent({ onClaimsExtracted, onLoading }: Upload
           </div>
 
           <h3 className="text-xl font-semibold text-white font-headline">Upload CSR Document</h3>
-          <p className="mt-2 text-on-surface-variant">
+          <p className="mt-2 text-[#a7aca9]">
             Drag and drop your PDF here, or click to select
           </p>
 
@@ -140,7 +140,7 @@ export default function UploadComponent({ onClaimsExtracted, onLoading }: Upload
 
           <button
             disabled={isUploading}
-            className="mt-4 rounded-lg bg-primary px-6 py-2 font-semibold text-on-primary transition-all hover:bg-primary-dim disabled:bg-surface-variant"
+            className="mt-4 rounded-lg bg-[#46ff78] px-6 py-2 font-semibold text-[#005d23] transition-all hover:bg-[#06ee65] disabled:bg-[#202724]"
           >
             {isUploading ? 'Uploading...' : 'Select PDF'}
           </button>
@@ -154,14 +154,14 @@ export default function UploadComponent({ onClaimsExtracted, onLoading }: Upload
                   style={{ width: `${uploadProgress}%` }}
                 />
               </div>
-              <p className="mt-2 text-sm text-on-surface-variant">{uploadProgress}%</p>
+              <p className="mt-2 text-sm text-[#a7aca9]">{uploadProgress}%</p>
             </div>
           )}
         </div>
       </div>
 
       {error && (
-        <div className="mt-4 rounded-lg border border-error/50 bg-error/10 p-4 text-on-error-container">
+        <div className="mt-4 rounded-lg border border-[#ff716c]/50 bg-[#ff716c]/10 p-4 text-[#ffa8a3]">
           {error}
         </div>
       )}

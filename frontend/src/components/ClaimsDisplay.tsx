@@ -28,9 +28,9 @@ const themeColors: Record<string, { bg: string; text: string; badge: string }> =
     badge: 'bg-secondary/20 text-secondary',
   },
   governance: {
-    bg: 'bg-surface-variant/10',
-    text: 'text-on-surface-variant',
-    badge: 'bg-surface-variant/20 text-on-surface-variant',
+    bg: 'bg-[#202724]/10',
+    text: 'text-[#a7aca9]',
+    badge: 'bg-[#202724]/20 text-[#a7aca9]',
   },
   ethics: { bg: 'bg-primary/10', text: 'text-primary', badge: 'bg-primary/20 text-primary' },
 };
@@ -54,7 +54,7 @@ export default function ClaimsDisplay({ claims, isLoading }: ClaimsDisplayProps)
       <div className="flex items-center justify-center py-12">
         <div className="flex flex-col items-center gap-4">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-surface-variant border-t-primary" />
-          <p className="text-on-surface-variant">Extracting claims...</p>
+          <p className="text-[#a7aca9]">Extracting claims...</p>
         </div>
       </div>
     );
@@ -68,7 +68,7 @@ export default function ClaimsDisplay({ claims, isLoading }: ClaimsDisplayProps)
     <div className="space-y-4">
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-white font-headline">Extracted Claims</h2>
-        <p className="mt-1 text-on-surface-variant">
+        <p className="mt-1 text-[#a7aca9]">
           Found {claims.length} sustainability claim{claims.length !== 1 ? 's' : ''}
         </p>
       </div>
@@ -97,16 +97,16 @@ export default function ClaimsDisplay({ claims, isLoading }: ClaimsDisplayProps)
                     <div className={`text-sm font-bold ${getConfidenceColor(claim.confidence)}`}>
                       {Math.round(claim.confidence * 100)}%
                     </div>
-                    <div className="text-xs text-on-surface-variant">confidence</div>
+                    <div className="text-xs text-[#a7aca9]">confidence</div>
                   </div>
                 </div>
 
                 {/* Claim Text */}
-                <p className="line-clamp-4 text-sm text-on-surface">{claim.claim_text}</p>
+                <p className="line-clamp-4 text-sm text-[#f9fdf9]">{claim.claim_text}</p>
 
                 {/* Metrics */}
                 {claim.metrics && (
-                  <div className="mt-3 rounded-lg bg-white/5 p-2 text-xs text-on-surface-variant">
+                  <div className="mt-3 rounded-lg bg-white/5 p-2 text-xs text-[#a7aca9]">
                     <span className="font-semibold">Metrics: </span>
                     {claim.metrics}
                   </div>
@@ -139,7 +139,7 @@ export default function ClaimsDisplay({ claims, isLoading }: ClaimsDisplayProps)
               className={`rounded-lg border border-white/5 p-4 text-center glass-panel ${colors.bg}`}
             >
               <div className={`text-2xl font-bold ${colors.text}`}>{count}</div>
-              <div className="mt-1 text-xs text-on-surface-variant">{getThemeLabel(theme)}</div>
+              <div className="mt-1 text-xs text-[#a7aca9]">{getThemeLabel(theme)}</div>
             </div>
           );
         })}
@@ -148,7 +148,7 @@ export default function ClaimsDisplay({ claims, isLoading }: ClaimsDisplayProps)
       {/* Average confidence */}
       <div className="rounded-lg border border-white/5 bg-surface-container/50 p-4 backdrop-blur-xs glass-panel">
         <div className="flex items-center justify-between">
-          <span className="text-on-surface-variant">Average Confidence</span>
+          <span className="text-[#a7aca9]">Average Confidence</span>
           <span
             className={`text-lg font-bold ${getConfidenceColor(
               claims.reduce((acc, claim) => acc + claim.confidence, 0) / claims.length

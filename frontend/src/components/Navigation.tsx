@@ -1,6 +1,6 @@
 export default function Navigation() {
   return (
-    <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-background/60 backdrop-blur-xl border-b border-white/5">
+    <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#0a0f0d]/60 backdrop-blur-xl border-b border-white/5">
       <div className="flex items-center gap-12">
         <a
           className="text-2xl font-bold tracking-tighter text-primary font-headline"
